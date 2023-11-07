@@ -3,7 +3,7 @@
 		'turtle',
 	},
 	title = 'GPS',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/gps',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/gps',
 	description = [[A single turtle GPS server
 
 Uses 4 wireless modems connected to a single turtle or computer connected with network cables.

@@ -1,6 +1,6 @@
 {
 	title = 'Collections',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/collections',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/collections',
 	description = [[Collections (rework)
 See: https://github.com/imliam/Lua-Collections
 

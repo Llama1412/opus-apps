@@ -1,6 +1,6 @@
 {
 	title = 'Disk compression',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/lzwfs',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/lzwfs',
 	description = [[Transparent file compression.
 Go to System->Compression to activate]],
 	license = 'MIT',

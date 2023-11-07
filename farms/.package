@@ -4,7 +4,7 @@
 		'turtle',
 	},
 	title = 'Programs for farming resources',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/farms',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/farms',
 	description = [[Includes: 
  * Tree Farm
  * Cow/Sheep Rancher

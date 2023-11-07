@@ -1,6 +1,6 @@
 {
 	title = 'Shell utilities',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/shellex',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/shellex',
 	description = [[Experimental!
 A port of openos shell tools.
 

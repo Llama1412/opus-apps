@@ -1,6 +1,6 @@
 {
 	title = 'Forestry mod applications',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/forestry',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/forestry',
 	description = [[WIP]],
 	license = 'MIT',
 }

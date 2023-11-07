@@ -5,7 +5,7 @@
 		'turtle',
 	},
 	title = 'Milo: Advanced inventory management',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/milo',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/milo',
 	description = [[Provides AE style crafting in computercraft.
 
 Includes: importing, exporting, autocrafting, replenish, limits and much more.

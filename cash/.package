@@ -1,6 +1,6 @@
 {
 	title = 'ComputerCraft Advanced Shell',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/cash',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/cash',
 	description = [[A Bourne-compatible shell for ComputerCraft.
 
 Features

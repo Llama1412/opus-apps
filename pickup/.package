@@ -4,7 +4,7 @@
 		'turtle',
 	},
 	title = 'Move resources around with turtles',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/pickup',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/pickup',
 	description = [[ WiP ]],
 	license = 'MIT',
 }

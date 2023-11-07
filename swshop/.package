@@ -3,7 +3,7 @@
 		'milo',
 	},
 	title = 'SwitchCraft basic shop',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/swshop',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/swshop',
 	description = 'Krist-based shop for SwitchCraft\nRun installPlugin.lua after install',
 	license = 'MIT',
 }

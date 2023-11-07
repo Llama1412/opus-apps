@@ -1,6 +1,6 @@
 {
 	title = 'Security features for Opus OS',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/secure',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/secure',
 	description = [[ Screen locking ]],
 	license = 'MIT',
 }

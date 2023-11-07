@@ -1,6 +1,6 @@
 {
 	title = 'A Mildly Better Shell',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/mbs',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/mbs',
 	description = [[
 A shell alternative and more by SquidDev-CC. See:
 https://github.com/SquidDev-CC/mbs

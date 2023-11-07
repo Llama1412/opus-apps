@@ -53,18 +53,18 @@ local ignores = {
 
 local dictionary = {
 	data = Util.readTable(DICTIONARY_FILE) or {
-		[ 'minecraft:chest'              ] = 'suck',
-		[ 'minecraft:lava'               ] = 'liquid_fuel',
-		[ 'minecraft:flowing_lava'       ] = 'liquid_fuel',
-		[ 'minecraft:mob_spawner'        ] = 'ignore',
-		[ 'minecraft:bedrock'            ] = 'ignore',
-		[ 'minecraft:flowing_water'      ] = 'ignore',
-		[ 'minecraft:water'              ] = 'ignore',
-		[ 'minecraft:air'                ] = 'ignore',
-		[ 'minecraft:bucket'             ] = 'retain',
-		[ 'computercraft:advanced_modem' ] = 'retain',
-		[ 'minecraft:diamond_pickaxe'    ] = 'retain',
-		[ 'plethora:module'              ] = 'retain',
+		[ 'minecraft:chest'                ] = 'suck',
+		[ 'minecraft:lava'                 ] = 'liquid_fuel',
+		[ 'minecraft:flowing_lava'         ] = 'liquid_fuel',
+		[ 'minecraft:mob_spawner'          ] = 'ignore',
+		[ 'minecraft:bedrock'              ] = 'ignore',
+		[ 'minecraft:flowing_water'        ] = 'ignore',
+		[ 'minecraft:water'                ] = 'ignore',
+		[ 'minecraft:air'                  ] = 'ignore',
+		[ 'minecraft:bucket'               ] = 'retain',
+		[ 'computercraft:wireless_modem_advanced'   ] = 'retain',
+		[ 'minecraft:diamond_pickaxe'      ] = 'retain',
+		[ 'advancedperipherals:geo_scanner'] = 'retain',
 	},
 }
 
@@ -317,8 +317,13 @@ local function collectDrops(suckAction)
 end
 
 local function scan()
-	local scanner = Equipper.equipLeft('plethora:scanner')
-	local blocks = scanner.scan()
+	local scanner = Equipper.equipLeft('advancedperipherals:geo_scanner')
+
+	local blocks
+	repeat
+		blocks = scanner.scan(8)
+	until blocks
+
 	Equipper.equipLeft('minecraft:diamond_pickaxe')
 	local throttle = Util.throttle()
 
@@ -344,22 +349,22 @@ local function scan()
 	Util.filterInplace(blocks, function(b)
 		throttle()
 		if b.y >= bedrock then
-			b.action = dictionary:get(b.name, b.metadata) or 'mine'
+			b.action = dictionary:get(b.name, 0) or 'mine'
 
 			if ignores[b.action] then
 				return false
 			end
 
-			if b.action == 'liquid_fuel' and (b.y <= bedrock or b.metadata > 0) then
+			if b.action == 'liquid_fuel' and (b.y <= bedrock or 0 == 0) then
 				return false
 			end
 
-			local key = b.name .. ':' .. b.metadata
+			local key = b.name .. ':' .. 0
 			if not counts[key] then
 				counts[key] = {
 					displayName = key,
 					name = b.name,
-					damage = b.metadata,
+					damage = 0,
 					count = 1
 			}
 			else
@@ -393,10 +398,10 @@ local function scan()
 			error('aborted')
 		end
 
-		page.grid.nextBlock = b.name .. ':' .. b.metadata
+		page.grid.nextBlock = b.name .. ':' .. 0
 
 		-- Get the action again in case the user has ignored via UI
-		b.action = dictionary:get(b.name, b.metadata) or 'mine'
+		b.action = dictionary:get(b.name, 0) or 'mine'
 		if b.action == 'suck' or b.action == 'mine' then
 			status('mining: ' .. table.concat({ b.x, b.y, b.z }, ', '))
 
@@ -428,7 +433,7 @@ local function scan()
 				end
 			end
 		end
-		local key = b.name .. ':' .. b.metadata
+		local key = b.name .. ':' .. 0
 		counts[key].count = counts[key].count - 1
 		i = i - 1
 		display()
@@ -489,7 +494,6 @@ if not Util.getOptions(options, args) then
 	return
 end
 
--- in plethora code, we can override initialize with a scanner version
 turtle.initialize = function()
 	Equipper.equipModem('right')
 	Equipper.equipLeft('minecraft:diamond_pickaxe')
@@ -500,15 +504,32 @@ turtle.initialize = function()
 		end
 	end
 
-	local items = { 'minecraft:bucket', 'plethora:module' }
+	local items = { 'minecraft:bucket', 'advancedperipherals:geo_scanner' }
 	for _,v in pairs(items) do
 		verify(v)
 	end
 
 	--os.sleep(5)
 	local pt = GPS.getPoint(2) or error('GPS not found')
-	local scanner = Equipper.equipLeft('plethora:scanner')
-	local facing = scanner.getBlockMeta(0, 0, 0).state.facing
+
+	local scanner = Equipper.equipLeft('advancedperipherals:geo_scanner')
+	--local facing = "east"
+	local facing
+
+	turtle.forward()
+	local pt2 = GPS.getPoint(2) or error('GPS not found')
+	turtle.back()
+
+	if pt.x < pt2.x then
+		facing = "east"
+	elseif pt.z < pt2.z then
+		facing = "south"
+	elseif pt.x > pt2.x then
+		facing = "west"
+	elseif pt.z > pt2.z then
+	end
+
+
 	pt.heading = Point.facings[facing].heading
 	turtle.setPoint(pt, true)
 	Equipper.equipLeft('minecraft:diamond_pickaxe')
@@ -543,11 +564,11 @@ Event.addRoutine(function()
 	ejectTrash()
 
 	turtle.initialize {
-		right = 'computercraft:advanced_modem',
+		right = 'computercraft:wireless_modem_advanced',
 		left  = 'minecraft:diamond_pickaxe',
 		required = {
 			'minecraft:bucket',
-			'plethora:module',
+			'advancedperipherals:geo_scanner',
 		},
 		GPS = true,
 		minFuel = 100,

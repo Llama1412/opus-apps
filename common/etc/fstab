@@ -1,6 +1,6 @@
 packages/common/ascii.lua urlfs https://pastebin.com/raw/U3KcNyJd
 packages/common/hexedit.lua urlfs https://pastebin.com/raw/Ds9ajsp4
-packages/common/colors.lua urlfs https://raw.githubusercontent.com/kepler155c/opus-apps/develop-1.8/ignore/colors.lua
+packages/common/colors.lua urlfs https://raw.githubusercontent.com/Llama1412/opus-apps/main/ignore/colors.lua
 packages/common/cowsay.lua urlfs https://pastebin.com/raw/n00VQJsw
 packages/common/calc.lua urlfs https://pastebin.com/raw/nAinUn1h
 packages/common/write.lua urlfs https://pastebin.com/raw/RSyhCjqv

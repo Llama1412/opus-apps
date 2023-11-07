@@ -11,7 +11,7 @@ local equipmentList = Config.load('equipment', {
 	[ 'plethora:laser' ] = 'plethora:module:1',
 	[ 'plethora:introspection' ] = 'plethora:module:0',
 	[ 'plethora:kinetic' ] = 'plethora:module:4',
-	[ 'advanced_modem' ] = 'computercraft:advanced_modem:0',
+	[ 'advanced_modem' ] = 'computercraft:wireless_modem_advanced:0',
 	[ 'standard_modem' ] = 'computercraft:peripheral:1',
 })
 

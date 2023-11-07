@@ -1,6 +1,6 @@
 {
 	title = 'Games',
-	repository = 'kepler155c/opus-apps/{{OPUS_BRANCH}}/games',
+	repository = 'Llama1412/opus-apps/{{OPUS_BRANCH}}/games',
 	description = [[Games by various people]],
 	license = 'MIT',
 }

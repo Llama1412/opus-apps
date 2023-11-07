@@ -15,7 +15,7 @@ local vector     = _G.vector
 
 local WIRED_MODEM = 'computercraft:wired_modem_full'
 local CABLE       = 'computercraft:cable'
-local ENDER_MODEM = 'computercraft:advanced_modem'
+local ENDER_MODEM = 'computercraft:wireless_modem_advanced'
 
 local STARTUP_FILE = 'usr/autorun/gpsServer.lua'
 
